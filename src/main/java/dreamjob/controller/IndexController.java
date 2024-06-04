@@ -7,7 +7,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public String getIndex() {
-        return "Spring Hello World!";
+        return "Spring Spring Hello World!";
     }
 
 }
