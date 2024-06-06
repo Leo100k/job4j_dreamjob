@@ -1,7 +1,5 @@
 package dreamjob.repository;
 import dreamjob.model.Vacancy;
-
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
