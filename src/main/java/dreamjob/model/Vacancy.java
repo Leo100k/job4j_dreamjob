@@ -8,11 +8,11 @@ public class Vacancy {
 
     private String title;
 
-
     private String description;
+
     private LocalDateTime creationDate;
 
-    public Vacancy(int id, String title, String description, LocalDateTime creationDate ) {
+    public Vacancy(int id, String title, String description, LocalDateTime creationDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -35,13 +35,17 @@ public class Vacancy {
         this.title = title;
     }
 
-    public String getDescription() { return description;}
+    public String getDescription() {
+        return description; }
 
-    public void setDescription(String description) {this.description = description;}
+    public void setDescription(String description) {
+        this.description = description; }
 
-    public LocalDateTime getCreationDate() { return creationDate;}
+    public LocalDateTime getCreationDate() {
+        return creationDate; }
 
-    public void setCreationDate(LocalDateTime creationDate) {this.creationDate = creationDate; }
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate; }
 
     @Override
     public boolean equals(Object o) {

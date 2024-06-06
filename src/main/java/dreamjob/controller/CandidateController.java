@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import dreamjob.repository.MemoryCandidateRepository;
 import dreamjob.repository.CandidateRepository;
 
-
 @Controller
 @RequestMapping("/candidates") /* Работать с кандидатами будем по URI /vacancies/** */
 public class CandidateController {
