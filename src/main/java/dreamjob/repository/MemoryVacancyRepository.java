@@ -1,4 +1,5 @@
 package dreamjob.repository;
+
 import dreamjob.model.Vacancy;
 import java.time.LocalDateTime;
 import java.util.Collection;
