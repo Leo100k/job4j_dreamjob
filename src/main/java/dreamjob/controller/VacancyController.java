@@ -5,14 +5,11 @@ import dreamjob.service.VacancyService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-//import dreamjob.repository.MemoryVacancyRepository;
-//import dreamjob.repository.VacancyRepository;
 
 @Controller
 @RequestMapping("/vacancies") /* Работать с кандидатами будем по URI /vacancies/** */
 public class VacancyController {
 
-    //  private final VacancyRepository vacancyRepository = MemoryVacancyRepository.getInstance();
     private final VacancyService vacancyService = SimpleVacancyService.getInstance();
 
     @GetMapping
