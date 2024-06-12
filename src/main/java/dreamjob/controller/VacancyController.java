@@ -1,15 +1,15 @@
 package dreamjob.controller;
 import dreamjob.model.Vacancy;
-import dreamjob.service.SimpleVacancyService;
 import dreamjob.service.VacancyService;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+@ThreadSafe
 @Controller
 @RequestMapping("/vacancies") /* Работать с кандидатами будем по URI /vacancies/** */
 public class VacancyController {
-
     private final VacancyService vacancyService;
 
     public VacancyController(VacancyService vacancyService) {

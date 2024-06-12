@@ -1,18 +1,19 @@
 package dreamjob.controller;
 import dreamjob.model.Candidate;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import dreamjob.service.CandidateService;
 
 @Controller
+@ThreadSafe
 @RequestMapping("/candidates") /* Работать с кандидатами будем по URI /vacancies/** */
 public class CandidateController {
-
     private final CandidateService candidateService;
 
     public CandidateController(CandidateService candidateService) {
-        this.candidateService = candidateService;
+                this.candidateService = candidateService;
     }
 
     @GetMapping

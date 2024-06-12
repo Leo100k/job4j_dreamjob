@@ -1,17 +1,18 @@
 package dreamjob.service;
 import dreamjob.model.Vacancy;
 import dreamjob.repository.VacancyRepository;
+import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.Optional;
-
+@ThreadSafe
 @Service
 public class SimpleVacancyService implements VacancyService {
-
     private final VacancyRepository vacancyRepository;
 
     private SimpleVacancyService(VacancyRepository vacancyRepository) {
+
         this.vacancyRepository = vacancyRepository;
     }
 
