@@ -8,13 +8,14 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 @ThreadSafe
 @Repository
 public class MemoryCandidateRepository implements CandidateRepository {
 
     private final AtomicInteger nextId = new AtomicInteger(1);
-    private final Map<Integer, Candidate> candidaties = new HashMap<>();
+    private final Map<Integer, Candidate> candidaties = new ConcurrentHashMap<>();
 
     private MemoryCandidateRepository() {
         save(new Candidate(0, "Ivan Ivanov", "good", LocalDateTime.now()));
