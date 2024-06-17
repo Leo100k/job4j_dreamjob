@@ -75,7 +75,6 @@ public class VacancyController {
     @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable int id) {
         var isDeleted = vacancyService.deleteById(id);
-        System.out.println("Удаление =" + isDeleted);
         if (!isDeleted) {
             model.addAttribute("message", "Вакансия с указанным идентификатором не найдена");
             return "errors/404";

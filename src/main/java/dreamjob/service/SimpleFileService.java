@@ -41,8 +41,7 @@ public class SimpleFileService implements FileService {
     }
 
     private String getNewFilePath(String sourceName) {
-        System.out.println("DIRECTORY  " + storageDirectory + java.io.File.separator + UUID.randomUUID() + sourceName);
-        return storageDirectory + java.io.File.separator + UUID.randomUUID() + sourceName;
+            return storageDirectory + java.io.File.separator + UUID.randomUUID() + sourceName;
     }
 
     private void writeFileBytes(String path, byte[] content) {
