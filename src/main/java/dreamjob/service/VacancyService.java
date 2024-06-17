@@ -9,7 +9,7 @@ public interface VacancyService {
 
     Vacancy save(Vacancy vacancy, FileDto image);
 
-    boolean deleteById(int id);
+    void deleteById(int id);
 
     boolean update(Vacancy vacancy, FileDto image);
 
