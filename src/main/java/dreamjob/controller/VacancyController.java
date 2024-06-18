@@ -48,7 +48,7 @@ public class VacancyController {
     @GetMapping("/{id}")
     public String getById(Model model, @PathVariable int id) {
         var vacancyOptional = vacancyService.findById(id);
-        if (vacancyOptional.isEmpty()) {
+            if (vacancyOptional.isEmpty()) {
             model.addAttribute("message", "Вакансия с указанным идентификатором не найдена");
             return "errors/404";
         }
@@ -59,7 +59,7 @@ public class VacancyController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute Vacancy vacancy, @RequestParam MultipartFile file, Model model) {
-        try {
+         try {
             var isUpdated = vacancyService.update(vacancy, new FileDto(file.getOriginalFilename(), file.getBytes()));
             if (!isUpdated) {
                 model.addAttribute("message", "Вакансия с указанным идентификатором не найдена");
@@ -81,5 +81,4 @@ public class VacancyController {
         }
         return "redirect:/vacancies";
     }
-
 }

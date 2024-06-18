@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -36,8 +35,8 @@ public class MemoryVacancyRepository implements VacancyRepository {
     }
 
     @Override
-    public void deleteById(int id) {
-        vacancies.remove(id);
+    public boolean deleteById(int id) {
+        return  vacancies.remove(id) != null;
     }
 
     @Override
