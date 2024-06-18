@@ -43,8 +43,7 @@ public class Sql2oVacancyRepository implements VacancyRepository {
                 var affectedRows = query.executeUpdate().getResult();
                 return affectedRows > 0;
         }
-      //  return affectedRows > 0;
-       }
+     }
 
     @Override
     public boolean update(Vacancy vacancy) {
