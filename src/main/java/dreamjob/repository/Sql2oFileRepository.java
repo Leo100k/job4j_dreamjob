@@ -21,6 +21,7 @@ public class Sql2oFileRepository implements FileRepository {
                     .addParameter("name", file.getName())
                     .addParameter("path", file.getPath());
             int generatedId = query.executeUpdate().getKey(Integer.class);
+            System.out.println("ДженерID F " + generatedId);
             file.setId(generatedId);
             return file;
         }

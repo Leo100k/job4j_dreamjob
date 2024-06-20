@@ -38,7 +38,7 @@ public class Sql2oCandidateRepository implements CandidateRepository {
     @Override
     public boolean deleteById(int id) {
         try (var connection = sql2o.open()) {
-            var query = connection.createQuery("DELETE FROM vacancies WHERE id = :id");
+            var query = connection.createQuery("DELETE FROM candidates WHERE id = :id");
             query.addParameter("id", id);
             var affectedRows = query.executeUpdate().getResult();
             return affectedRows > 0;
@@ -50,13 +50,13 @@ public class Sql2oCandidateRepository implements CandidateRepository {
         try (var connection = sql2o.open()) {
             var sql = """
                     UPDATE candidates
-                    SET name = :name, description = :description, visible = :visible, city_id = :cityId, file_id = :fileId
+                    SET name = :name, description = :description, creation_date = :creationDate, visible = :visible, city_id = :cityId, file_id = :fileId
                     WHERE id = :id
                     """;
             var query = connection.createQuery(sql)
                     .addParameter("name", candidate.getName())
                     .addParameter("description", candidate.getDescription())
-                    /* .addParameter("creationDate", vacancy.getCreationDate()) */
+                    .addParameter("creationDate", candidate.getCreationDate())
                     .addParameter("visible", candidate.getVisible())
                     .addParameter("cityId", candidate.getCityId())
                     .addParameter("fileId", candidate.getFileId())
@@ -71,8 +71,8 @@ public class Sql2oCandidateRepository implements CandidateRepository {
         try (var connection = sql2o.open()) {
             var query = connection.createQuery("SELECT * FROM candidates WHERE id = :id");
             query.addParameter("id", id);
-            var vacancy = query.setColumnMappings(Candidate.COLUMN_MAPPING).executeAndFetchFirst(Candidate.class);
-            return Optional.ofNullable(vacancy);
+            var candidate = query.setColumnMappings(Candidate.COLUMN_MAPPING).executeAndFetchFirst(Candidate.class);
+            return Optional.ofNullable(candidate);
         }
     }
 

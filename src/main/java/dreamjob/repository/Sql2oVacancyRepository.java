@@ -47,17 +47,18 @@ public class Sql2oVacancyRepository implements VacancyRepository {
 
     @Override
     public boolean update(Vacancy vacancy) {
+        System.out.println("Дата СОЗДАНИЯ  " + vacancy.getCreationDate());
         try (var connection = sql2o.open()) {
             var sql = """
                     UPDATE vacancies
-                    SET title = :title, description = :description, visible = :visible, city_id = :cityId, file_id = :fileId
+                    SET title = :title, description = :description, creation_date = :creationDate
+                    , visible = :visible, city_id = :cityId, file_id = :fileId
                     WHERE id = :id
                     """;
             var query = connection.createQuery(sql)
                     .addParameter("title", vacancy.getTitle())
                     .addParameter("description", vacancy.getDescription())
-
-                    /* .addParameter("creationDate", vacancy.getCreationDate()) */
+                    .addParameter("creationDate", vacancy.getCreationDate())
                     .addParameter("visible", vacancy.getVisible())
                     .addParameter("cityId", vacancy.getCityId())
                     .addParameter("fileId", vacancy.getFileId())
