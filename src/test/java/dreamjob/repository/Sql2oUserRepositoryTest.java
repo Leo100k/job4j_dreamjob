@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import dreamjob.configuration.DatasourceConfiguration;
 import dreamjob.model.User;
 import org.sql2o.Sql2oException;
+
+import java.util.Optional;
 import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -37,15 +39,13 @@ public class Sql2oUserRepositoryTest {
         for (var user : users) {
             sql2oUserRepository.deleteById(user.getId());
         }
-        System.out.println(" ОТРАБОТАЛ Clear User");
     }
 
     @Test
     public void whenSaveThanException() {
         var user = sql2oUserRepository.save(new User(0, "le500@mail.ru", "YYYYYY", "zzzzz"));
-        var user2 = new User(0, "le500@mail.ru", "YYYYYY", "zzzzz");
-        assertThatThrownBy(() -> sql2oUserRepository.save(user2))
-                .isInstanceOf(Sql2oException.class);
+        var user2 = sql2oUserRepository.save(new User(0, "le500@mail.ru", "YYYYYY", "zzzzz"));
+        assertThat(user2).isEqualTo(Optional.empty());
     }
 
     @Test

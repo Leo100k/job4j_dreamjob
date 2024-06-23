@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String getLoginPage() {
+    public String getRegPage() {
         return "users/register";
     }
 
@@ -47,7 +47,22 @@ public class UserController {
         return "redirect:/vacancies";
     }
 
-/*
+    @GetMapping("/login")
+    public String getLoginPage() {
+        return "users/login";
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@ModelAttribute User user, Model model) {
+        var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        if (userOptional.isEmpty()) {
+            model.addAttribute("error", "Почта или пароль введены неверно");
+            return "users/login";
+        }
+        return "redirect:/vacancies";
+    }
+
+    /*
     @GetMapping("/{id}")
     public String getById(Model model, @PathVariable int id) {
         var vacancyOptional = vacancyService.findById(id);
