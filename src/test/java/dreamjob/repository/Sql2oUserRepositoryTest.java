@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import dreamjob.configuration.DatasourceConfiguration;
 import dreamjob.model.User;
-import org.sql2o.Sql2oException;
 
 import java.util.Optional;
 import java.util.Properties;

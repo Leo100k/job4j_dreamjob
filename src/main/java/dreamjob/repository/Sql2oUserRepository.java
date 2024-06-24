@@ -28,13 +28,14 @@ public class Sql2oUserRepository implements UserRepository {
                   .addParameter("name", user.getName())
                   .addParameter("password", user.getPassword(
                   ));
-                   int generatedId = query.executeUpdate().getKey(Integer.class);
-                   user.setId(generatedId);
-                   return Optional.ofNullable(user);
-        } catch (Sql2oException e) {
-                  return Optional.empty();
-    }
-}
+          int generatedId = query.executeUpdate().getKey(Integer.class);
+          user.setId(generatedId);
+          return Optional.of(user);
+      } catch (Sql2oException e) {
+          System.out.println(e);
+      }
+      return Optional.empty();
+  }
 
     @Override
     public boolean deleteById(int id) {
