@@ -38,7 +38,7 @@ public class VacancyController {
     }
 
     @GetMapping("/create")
-    public String getCreationPage(Model model, HttpSession session ) {
+    public String getCreationPage(Model model, HttpSession session) {
         var user = (User) session.getAttribute("user");
         if (user == null) {
             user = new User();
