@@ -70,7 +70,7 @@
             <artifactId>liquibase-core</artifactId>
             <version>4.23.1</version>
         </dependency>
-    </dependencies>
+     </dependencies>
     <profiles>
         <profile>
             <id>test</id>
@@ -140,6 +140,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 </project>

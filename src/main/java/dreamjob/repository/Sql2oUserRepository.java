@@ -3,9 +3,11 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import dreamjob.model.User;
 import org.sql2o.Sql2oException;
+//import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
 import java.util.Optional;
+//@Slf4j
 @Repository
 public class Sql2oUserRepository implements UserRepository {
 
@@ -32,7 +34,8 @@ public class Sql2oUserRepository implements UserRepository {
           user.setId(generatedId);
           return Optional.of(user);
       } catch (Sql2oException e) {
-          System.out.println(e);
+          e.printStackTrace();
+       //   log.error("Same mail!", e);
       }
       return Optional.empty();
   }
