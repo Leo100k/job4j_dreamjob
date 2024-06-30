@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import dreamjob.model.User;
 import org.sql2o.Sql2oException;
-//import lombok.*;
 import java.util.Collection;
 import java.util.Optional;
 
