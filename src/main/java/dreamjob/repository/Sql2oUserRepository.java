@@ -1,13 +1,15 @@
 package dreamjob.repository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import dreamjob.model.User;
 import org.sql2o.Sql2oException;
-
+//import lombok.*;
 import java.util.Collection;
 import java.util.Optional;
 
 @Repository
+@Slf4j
 public class Sql2oUserRepository implements UserRepository {
 
     private final Sql2o sql2o;
