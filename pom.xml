@@ -109,15 +109,11 @@
                         <artifactId>checkstyle</artifactId>
                         <version>8.42</version>
                     </dependency>
+
                     <dependency>
                         <groupId>org.projectlombok</groupId>
                         <artifactId>lombok</artifactId>
                         <version>1.18.28</version>
-                        <scope>provided</scope>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok</artifactId>
                         <optional>true</optional>
                     </dependency>
                     <dependency>
